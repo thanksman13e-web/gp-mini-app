@@ -107,6 +107,7 @@
     </div>
 
     <script>
+        // Все функции объявлены в глобальной области
         function searchAll() {
             let theme = document.getElementById('query').value.trim();
             if (!theme) theme = "hardcore gay";
@@ -115,10 +116,10 @@
 
             window.open(`https://yandex.ru/search/?text=${encoded}`, '_blank');
             setTimeout(() => window.open(`https://www.pornhub.com/gay/video/search?search=${encoded}`, '_blank'), 400);
-            setTimeout(() => window.open(`https://www.xvideos.com/gay?k=${encoded}`, '_blank'), 800);
+            setTimeout(() => window.open(`https://www.xvideos.com/gay?k=${encoded}`, '_blank'), 800);saveHistory(theme);
+        }
 
-            saveHistory(theme);
-        }function quickSearch(cat) {
+        function quickSearch(cat) {
             document.getElementById('query').value = cat;
             searchAll();
         }
@@ -155,7 +156,7 @@
             if (e.key === 'Enter') searchAll();
         });
 
-        // Загрузка истории
+        // Загрузка
         window.onload = function() {
             showHistory();
         };
