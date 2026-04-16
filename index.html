@@ -3,74 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Gay Porn iPhone</title>
+    <title>Gay Porn Search</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
         body {
             margin: 0;
-            padding: 25px 20px;
+            padding: 20px;
             background: linear-gradient(180deg, #0a001f, #2a0033);
             color: #ff69b4;
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             text-align: center;
             min-height: 100vh;
         }
         h1 {
-            font-size: 38px;
-            margin: 20px 0 15px;
-            text-shadow: 0 0 35px #ff1493;
+            font-size: 42px;
+            margin: 40px 0 15px;
+            text-shadow: 0 0 40px #ff1493;
+        }
+        p {
+            font-size: 19px;
+            opacity: 0.9;
+            margin-bottom: 30px;
         }
         input {
-            width: 100%;
-            max-width: 520px;
+            width: 90%;
+            max-width: 550px;
             padding: 22px;
             font-size: 20px;
             border: none;
-            border-radius: 22px;
+            border-radius: 25px;
             background: #1f1f3a;
             color: white;
-            margin: 20px 0 30px;
+            margin: 20px 0 35px;
             box-shadow: 0 10px 40px rgba(255,20,147,0.4);
         }
         button {
             background: linear-gradient(90deg, #ff1493, #ff4500);
             color: white;
             border: none;
-            padding: 22px 70px;
-            font-size: 23px;
+            padding: 22px 80px;
+            font-size: 24px;
             font-weight: bold;
-            border-radius: 22px;
+            border-radius: 25px;
             cursor: pointer;
-            margin: 12px;
-            box-shadow: 0 12px 45px rgba(255,20,147,0.7);
+            margin: 15px;
+            box-shadow: 0 12px 50px rgba(255,20,147,0.8);
         }
         button:active {
-            transform: scale(0.94);
+            transform: scale(0.95);
         }
         .cats {
-            margin-top: 35px;
+            margin-top: 40px;
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 14px;
             justify-content: center;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .cat-btn {
             background: #3a1f5c;
             color: #ff99cc;
             border: none;
-            padding: 14px 24px;
+            padding: 16px 26px;
             font-size: 17px;
-            border-radius: 18px;
+            border-radius: 20px;
             cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <h1>🍆 Gay Porn на iPhone</h1>
-    <p>Введи тему и нажми кнопку</p>
+    <h1>🍆 Gay Porn Search</h1>
+    <p>Введи свою тему и нажми кнопку</p>
 
-    <input type="text" id="query" placeholder="яндекс, twink, bear, daddy, rough anal..." autofocus>
+    <input type="text" id="query" placeholder="яндекс, twink, bear, daddy, rough anal, muscular..." autofocus>
 
-    <button onclick="openPorn()">🔥 ОТКРЫТЬ ПОРНО В БРАУЗЕРЕ</button>
+    <button onclick="openPorn()">🔥 ОТКРЫТЬ ПОРНО</button>
 
     <div class="cats">
         <button class="cat-btn" onclick="quick('twink')">Twink</button>
@@ -78,29 +88,28 @@
         <button class="cat-btn" onclick="quick('bareback')">Bareback</button>
         <button class="cat-btn" onclick="quick('creampie')">Creampie</button>
         <button class="cat-btn" onclick="quick('daddy')">Daddy</button>
+        <button class="cat-btn" onclick="quick('rough gay')">Rough</button>
         <button class="cat-btn" onclick="quick('яндекс')">Яндекс</button>
         <button class="cat-btn" onclick="random()">🎲 Случайное</button>
     </div>
 
     <script>
         function openPorn() {
-            let q = document.getElementById('query').value.trim();
-            if (!q) q = "gay porno";
+            let theme = document.getElementById('query').value.trim();
+            if (!theme) theme = "gay";
 
-            const search = encodeURIComponent(q + " gay porno");
+            const full = encodeURIComponent(theme + " gay porno");
 
-            // Основной Яндекс
-            window.open(`https://yandex.ru/search/?text=${search}`, '_blank');
-
-            // Pornhub
+            // Открываем сразу несколько вкладок
+            window.open(`https://yandex.ru/search/?text=${full}`, '_blank');
+            
             setTimeout(() => {
-                window.open(`https://www.pornhub.com/gay/video/search?search=${search}`, '_blank');
-            }, 400);
+                window.open(`https://www.pornhub.com/gay/video/search?search=${full}`, '_blank');
+            }, 300);
 
-            // Xvideos как запасной
             setTimeout(() => {
-                window.open(`https://www.xvideos.com/gay?k=${search}`, '_blank');
-            }, 800);
+                window.open(`https://www.xvideos.com/gay?k=${full}`, '_blank');
+            }, 700);
         }
 
         function quick(cat) {
@@ -109,14 +118,14 @@
         }
 
         function random() {
-            const items = ["twink anal", "bear fuck", "bareback creampie", "daddy son", "rough gay", "muscular gay", "яндекс"];
-            const rand = items[Math.floor(Math.random() * items.length)];
+            const list = ["twink anal", "muscular bear", "bareback creampie", "daddy son", "rough gangbang gay", "big black cock gay", "яндекс"];
+            const rand = list[Math.floor(Math.random() * list.length)];
             document.getElementById('query').value = rand;
             openPorn();
         }
 
-        // Enter на клавиатуре iPhone
-        document.getElementById('query').addEventListener('keypress', function(e) {
+        // Enter работает
+        document.getElementById('query').addEventListener('keypress', (e) => {
             if (e.key === 'Enter') openPorn();
         });
     </script>
