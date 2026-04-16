@@ -3,131 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Gay Porn Search</title>
+    <title>NEON COCK • Gay Porn</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        
+        :root {
+            --neon-pink: #ff1493;
+            --neon-purple: #c026d3;
+            --neon-orange: #ff4500;
+        }
         
         body {
             margin: 0;
-            padding: 20px;
-            background: linear-gradient(180deg, #0a001f, #2a0033);
-            color: #ff69b4;
-            font-family: 'Inter', -apple-system, sans-serif;
-            text-align: center;
-            min-height: 100vh;
-        }
-        h1 {
-            font-size: 42px;
-            margin: 40px 0 15px;
-            text-shadow: 0 0 40px #ff1493;
-        }
-        p {
-            font-size: 19px;
-            opacity: 0.9;
-            margin-bottom: 30px;
-        }
-        input {
-            width: 90%;
-            max-width: 550px;
-            padding: 22px;
-            font-size: 20px;
-            border: none;
-            border-radius: 25px;
-            background: #1f1f3a;
-            color: white;
-            margin: 20px 0 35px;
-            box-shadow: 0 10px 40px rgba(255,20,147,0.4);
-        }
-        button {
-            background: linear-gradient(90deg, #ff1493, #ff4500);
-            color: white;
-            border: none;
-            padding: 22px 80px;
-            font-size: 24px;
-            font-weight: bold;
-            border-radius: 25px;
-            cursor: pointer;
-            margin: 15px;
-            box-shadow: 0 12px 50px rgba(255,20,147,0.8);
-        }
-        button:active {
-            transform: scale(0.95);
-        }
-        .cats {
-            margin-top: 40px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            justify-content: center;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .cat-btn {
-            background: #3a1f5c;
+            padding: 0;
+            background: radial-gradient(circle at center, #1a0033, #0a001f);
             color: #ff99cc;
+            font-family: 'Inter', system-ui, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 54px;
+            font-weight: 700;
+            text-align: center;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple), var(--neon-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 60px rgba(255,20,147,0.8);
+            margin: 0 0 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 18px;
+            opacity: 0.85;
+            margin-bottom: 40px;
+        }
+        
+        .search-box {
+            position: relative;
+            margin-bottom: 45px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 24px 70px 24px 28px;
+            font-size: 21px;
+            background: rgba(31,31,58,0.9);
+            border: 2px solid rgba(255,20,147,0.5);
+            border-radius: 30px;
+            color: white;
+            box-shadow: 0 0 50px rgba(255,20,147,0.4);
+        }
+        
+        input:focus {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 60px rgba(255,20,147,0.7);
+            outline: none;
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-orange));
+            color: white;
             border: none;
-            padding: 16px 26px;
-            font-size: 17px;
-            border-radius: 20px;
+            padding: 18px 45px;
+            font-size: 21px;
+            font-weight: 700;
+            border-radius: 25px;
             cursor: pointer;
+            box-shadow: 0 10px 40px rgba(255,20,147,0.7);
+        }
+        
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 16px;
+            margin: 50px 0;
+        }
+        
+        .cat-card {
+            background: rgba(58,31,92,0.75);
+            border: 1px solid rgba(255,20,147,0.4);
+            padding: 22px 16px;
+            border-radius: 24px;
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .cat-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            background: rgba(255,20,147,0.25);
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 45px rgba(255,20,147,0.6);
+        }
+        
+        .history {
+            margin-top: 60px;
+        }
+        
+        .history h3 {
+            color: #ff99cc;
+            margin-bottom: 15px;
+        }
+        
+        .history-item {
+            background: rgba(31,31,58,0.7);
+            padding: 16px 20px;
+            margin-bottom: 10px;
+            border-radius: 18px;
+            cursor: pointer;
+        }
+        
+        .history-item:hover {
+            background: rgba(255,20,147,0.2);
         }
     </style>
 </head>
 <body>
-    <h1>🍆 Gay Porn Search</h1>
-    <p>Введи свою тему и нажми кнопку</p>
+    <div class="container">
+        <h1>NEON COCK</h1>
+<p class="subtitle">Гей-порно поиск • Яндекс + Pornhub + Xvideos</p>
 
-    <input type="text" id="query" placeholder="яндекс, twink, bear, daddy, rough anal, muscular..." autofocus>
+        <div class="search-box">
+            <input type="text" id="query" placeholder="Введи тему... (twink, daddy, яндекс, bareback...)" autofocus>
+            <button class="search-btn" onclick="searchAll()">🔥 ПОИСК</button>
+        </div>
 
-    <button onclick="openPorn()">🔥 ОТКРЫТЬ ПОРНО</button>
+        <div class="categories">
+            <div class="cat-card" onclick="quickSearch('twink')">Twink</div>
+            <div class="cat-card" onclick="quickSearch('bear')">Bear</div>
+            <div class="cat-card" onclick="quickSearch('daddy')">Daddy</div>
+            <div class="cat-card" onclick="quickSearch('bareback')">Bareback</div>
+            <div class="cat-card" onclick="quickSearch('creampie')">Creampie</div>
+            <div class="cat-card" onclick="quickSearch('rough gay')">Rough</div>
+            <div class="cat-card" onclick="quickSearch('big cock')">Big Cock</div>
+            <div class="cat-card" onclick="quickSearch('muscle')">Muscle</div>
+            <div class="cat-card" onclick="quickSearch('яндекс')">Яндекс</div>
+        </div>
 
-    <div class="cats">
-        <button class="cat-btn" onclick="quick('twink')">Twink</button>
-        <button class="cat-btn" onclick="quick('bear')">Bear</button>
-        <button class="cat-btn" onclick="quick('bareback')">Bareback</button>
-        <button class="cat-btn" onclick="quick('creampie')">Creampie</button>
-        <button class="cat-btn" onclick="quick('daddy')">Daddy</button>
-        <button class="cat-btn" onclick="quick('rough gay')">Rough</button>
-        <button class="cat-btn" onclick="quick('яндекс')">Яндекс</button>
-        <button class="cat-btn" onclick="random()">🎲 Случайное</button>
+        <div class="history" id="history">
+            <h3>Недавние запросы</h3>
+        </div>
     </div>
 
     <script>
-        function openPorn() {
-            let theme = document.getElementById('query').value.trim();
-            if (!theme) theme = "gay";
+        const queryInput = document.getElementById('query');
+        const historyContainer = document.getElementById('history');
 
-            const full = encodeURIComponent(theme + " gay porno");
+        function saveToHistory(theme) {
+            let history = JSON.parse(localStorage.getItem('pornHistory') || '[]');
+            if (!history.includes(theme)) {
+                history.unshift(theme);
+                if (history.length > 8) history.pop();
+                localStorage.setItem('pornHistory', JSON.stringify(history));
+            }
+            renderHistory();
+        }
 
-            // Открываем сразу несколько вкладок
-            window.open(`https://yandex.ru/search/?text=${full}`, '_blank');
+        function renderHistory() {
+            let history = JSON.parse(localStorage.getItem('pornHistory') || '[]');
+            historyContainer.innerHTML = <h3>Недавние запросы</h3>;
             
-            setTimeout(() => {
-                window.open(`https://www.pornhub.com/gay/video/search?search=${full}`, '_blank');
-            }, 300);
-
-            setTimeout(() => {
-                window.open(`https://www.xvideos.com/gay?k=${full}`, '_blank');
-            }, 700);
+            if (history.length === 0) {
+                historyContainer.innerHTML += <p style="opacity:0.6;text-align:center;">Пока пусто...</p>;
+                return;
+            }
+            
+            history.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'history-item';
+                div.textContent = item;
+                div.onclick = () => {
+                    queryInput.value = item;
+                    searchAll();
+                };
+                historyContainer.appendChild(div);
+            });
         }
 
-        function quick(cat) {
-            document.getElementById('query').value = cat;
-            openPorn();
+        function openSites(fullQuery) {
+            window.open(`https://yandex.ru/search/?text=${fullQuery}`, '_blank');
+            setTimeout(() => window.open(`https://www.pornhub.com/gay/video/search?search=${fullQuery}`, '_blank'), 350);
+            setTimeout(() => window.open(`https://www.xvideos.com/gay?k=${fullQuery}`, '_blank'), 750);
         }
 
-        function random() {
-            const list = ["twink anal", "muscular bear", "bareback creampie", "daddy son", "rough gangbang gay", "big black cock gay", "яндекс"];
-            const rand = list[Math.floor(Math.random() * list.length)];
-            document.getElementById('query').value = rand;
-            openPorn();
+        function searchAll() {
+            let theme = queryInput.value.trim();
+            if (!theme) theme = "hardcore gay";
+
+            const fullQuery = encodeURIComponent(theme + " gay porno");
+            saveToHistory(theme);
+            openSites(fullQuery);
         }
 
-        // Enter работает
-        document.getElementById('query').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') openPorn();
+        function quickSearch(cat) {
+            queryInput.value = cat;
+            searchAll();
+        }
+
+        // Enter
+        queryInput.addEventListener('keypress', e => {
+            if (e.key === 'Enter') searchAll();
         });
+
+        // Инициализация
+        window.onload = () => {
+            renderHistory();
+            queryInput.focus();
+        };
     </script>
 </body>
 </html>
