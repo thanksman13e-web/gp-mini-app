@@ -3,95 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Gay Porn Yandex Search</title>
+    <title>Gay Porn iPhone</title>
     <style>
         body {
             margin: 0;
-            padding: 20px;
+            padding: 25px 20px;
             background: linear-gradient(180deg, #0a001f, #2a0033);
             color: #ff69b4;
-            font-family: system-ui, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
             text-align: center;
             min-height: 100vh;
         }
-        h1 { 
-            font-size: 32px; 
-            margin: 20px 0 10px; 
-            text-shadow: 0 0 30px #ff1493; 
+        h1 {
+            font-size: 38px;
+            margin: 20px 0 15px;
+            text-shadow: 0 0 35px #ff1493;
         }
         input {
-            width: 90%;
-            max-width: 500px;
-            padding: 18px;
-            font-size: 18px;
+            width: 100%;
+            max-width: 520px;
+            padding: 22px;
+            font-size: 20px;
             border: none;
-            border-radius: 16px;
+            border-radius: 22px;
             background: #1f1f3a;
             color: white;
-            margin: 20px 0;
-            box-shadow: 0 5px 25px rgba(255,20,147,0.4);
+            margin: 20px 0 30px;
+            box-shadow: 0 10px 40px rgba(255,20,147,0.4);
         }
         button {
             background: linear-gradient(90deg, #ff1493, #ff4500);
             color: white;
             border: none;
-            padding: 18px 50px;
-            font-size: 20px;
+            padding: 22px 70px;
+            font-size: 23px;
             font-weight: bold;
-            border-radius: 16px;
-            margin: 10px;
+            border-radius: 22px;
             cursor: pointer;
-            box-shadow: 0 8px 30px rgba(255,20,147,0.6);
+            margin: 12px;
+            box-shadow: 0 12px 45px rgba(255,20,147,0.7);
         }
-        button:active { transform: scale(0.95); }
-        .info {
-            margin-top: 30px;
-            font-size: 15px;
-            opacity: 0.8;
+        button:active {
+            transform: scale(0.94);
+        }
+        .cats {
+            margin-top: 35px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        .cat-btn {
+            background: #3a1f5c;
+            color: #ff99cc;
+            border: none;
+            padding: 14px 24px;
+            font-size: 17px;
+            border-radius: 18px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <h1>🍆 Gay Porn через Яндекс</h1>
-    <p>Напиши свою тему</p>
+    <h1>🍆 Gay Porn на iPhone</h1>
+    <p>Введи тему и нажми кнопку</p>
 
     <input type="text" id="query" placeholder="яндекс, twink, bear, daddy, rough anal..." autofocus>
 
-    <br><br>
-    <button onclick="searchYandex()">🔍 Искать в Яндекс + gay porno</button>
+    <button onclick="openPorn()">🔥 ОТКРЫТЬ ПОРНО В БРАУЗЕРЕ</button>
 
-    <div class="info">
-        Откроется Яндекс с твоим запросом + "gay porno"<br>
-        (внешний браузер)
+    <div class="cats">
+        <button class="cat-btn" onclick="quick('twink')">Twink</button>
+        <button class="cat-btn" onclick="quick('bear')">Bear</button>
+        <button class="cat-btn" onclick="quick('bareback')">Bareback</button>
+        <button class="cat-btn" onclick="quick('creampie')">Creampie</button>
+        <button class="cat-btn" onclick="quick('daddy')">Daddy</button>
+        <button class="cat-btn" onclick="quick('яндекс')">Яндекс</button>
+        <button class="cat-btn" onclick="random()">🎲 Случайное</button>
     </div>
 
     <script>
-        function searchYandex() {
-            let theme = document.getElementById('query').value.trim();
-            
-            if (!theme) {
-                theme = "gay porno"; // если ничего не ввели
-            }
+        function openPorn() {
+            let q = document.getElementById('query').value.trim();
+            if (!q) q = "gay porno";
 
-            // Формируем запрос: тема + " gay porno"
-            const fullQuery = encodeURIComponent(theme + " gay porno");
+            const search = encodeURIComponent(q + " gay porno");
 
-            // Яндекс поиск
-            const yandexUrl = https://yandex.ru/search/?text=${fullQuery};
+            // Основной Яндекс
+            window.open(`https://yandex.ru/search/?text=${search}`, '_blank');
 
-            // Открываем во внешнем браузере (самый стабильный способ)
-            window.open(yandexUrl, '_blank');
+            // Pornhub
+            setTimeout(() => {
+                window.open(`https://www.pornhub.com/gay/video/search?search=${search}`, '_blank');
+            }, 400);
 
-            // Дополнительно можно открыть Pornhub напрямую по той же теме
-            // const pornhubUrl = https://www.pornhub.com/gay/video/search?search=${fullQuery};
-            // window.open(pornhubUrl, '_blank');
+            // Xvideos как запасной
+            setTimeout(() => {
+                window.open(`https://www.xvideos.com/gay?k=${search}`, '_blank');
+            }, 800);
         }
 
-        // Поддержка Enter
+        function quick(cat) {
+            document.getElementById('query').value = cat;
+            openPorn();
+        }
+
+        function random() {
+            const items = ["twink anal", "bear fuck", "bareback creampie", "daddy son", "rough gay", "muscular gay", "яндекс"];
+            const rand = items[Math.floor(Math.random() * items.length)];
+            document.getElementById('query').value = rand;
+            openPorn();
+        }
+
+        // Enter на клавиатуре iPhone
         document.getElementById('query').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchYandex();
-            }
+            if (e.key === 'Enter') openPorn();
         });
     </script>
 </body>
