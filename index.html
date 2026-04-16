@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gay Porn Search</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(180deg, #0f0f1e, #2a0033);
+            color: #ff69b4;
+            font-family: system-ui, sans-serif;
+            text-align: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        h1 { font-size: 28px; margin: 10px 0; text-shadow: 0 0 20px #ff1493; }
+        input {
+            width: 90%;
+            padding: 18px;
+            font-size: 18px;
+            border: none;
+            border-radius: 15px;
+            background: #1f1f3a;
+            color: white;
+            margin: 20px 0;
+        }
+        button {
+            background: linear-gradient(90deg, #ff1493, #ff4500);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.6);
+        }
+        button:active { transform: scale(0.95); }
+    </style>
+</head>
+<body>
+    <h1>🍆 Gay Porn Finder</h1>
+    <p>Введи запрос и жми кнопку</p>
+
+    <input type="text" id="query" placeholder="big cock, twink anal, bear creampie, rough gay..." autofocus>
+
+    <br><br>
+    <button onclick="openGayPorn()">🚀 Открыть порно в браузере</button>
+
+    <script>
+        Telegram.WebApp.ready();
+        Telegram.WebApp.expand();
+        Telegram.WebApp.setHeaderColor('#0f0f1e');
+        Telegram.WebApp.setBackgroundColor('#0f0f1e');
+
+        function openGayPorn() {
+            let q = document.getElementById('query').value.trim();
+            if (!q) q = "hardcore gay porn";
+
+            const encoded = encodeURIComponent(q + " gay");
+
+            const urls = [
+                https://www.pornhub.com/gay/video/search?search=${encoded},
+                https://www.xvideos.com/gay?k=${encoded},
+                https://xhamster.com/gay/search/${encoded},
+                https://www.xnxx.com/search/gay/${encoded}
+            ];
+
+            // Открываем несколько вкладок во внешнем браузере
+            urls.forEach((url, i) => {
+                setTimeout(() => {
+                    Telegram.WebApp.openLink(url);
+                }, i * 250);
+            });
+        }
+
+        // Поддержка Enter
+        document.getElementById('query').addEventListener('keypress', e => {
+            if (e.key === 'Enter') openGayPorn();
+        });
+    </script>
+</body>
+</html>
