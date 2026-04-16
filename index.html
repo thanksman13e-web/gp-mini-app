@@ -11,16 +11,11 @@
             padding: 20px;
             background: linear-gradient(180deg, #0a001f, #2a0033);
             color: #ff69b4;
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: system-ui, sans-serif;
             text-align: center;
             min-height: 100vh;
-            overflow: hidden;
         }
-        h1 {
-            font-size: 32px;
-            margin: 15px 0 8px;
-            text-shadow: 0 0 25px #ff1493;
-        }
+        h1 { font-size: 32px; margin: 15px 0 8px; text-shadow: 0 0 25px #ff1493; }
         p { opacity: 0.9; margin-bottom: 20px; }
         input {
             width: 92%;
@@ -46,19 +41,8 @@
             box-shadow: 0 6px 25px rgba(255, 20, 147, 0.5);
         }
         button:active { transform: scale(0.96); }
-        .categories {
-            margin: 25px 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: center;
-        }
-        .cat-btn {
-            background: #3a1f5c;
-            padding: 10px 16px;
-            font-size: 15px;
-            border-radius: 12px;
-        }
+        .categories { margin: 25px 0; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+        .cat-btn { background: #3a1f5c; padding: 10px 16px; font-size: 15px; border-radius: 12px; }
     </style>
 </head>
 <body>
@@ -80,10 +64,23 @@
     </div>
 
     <script>
-        Telegram.WebApp.ready();
-        Telegram.WebApp.expand();
-        Telegram.WebApp.setHeaderColor('#0a001f');
-        Telegram.WebApp.setBackgroundColor('#0a001f');
+        // Инициализация Telegram
+        if (window.Telegram && Telegram.WebApp) {
+            Telegram.WebApp.ready();
+            Telegram.WebApp.expand();
+            Telegram.WebApp.setHeaderColor('#0a001f');
+            Telegram.WebApp.setBackgroundColor('#0a001f');
+        }
+
+        function openLinkSafely(url) {
+            // Основной способ через Telegram
+            if (window.Telegram && Telegram.WebApp && Telegram.WebApp.openLink) {
+                Telegram.WebApp.openLink(url);
+            } else {
+                // Запасной способ — открываем во внешнем браузере
+                window.open(url, '_blank');
+            }
+        }
 
         function openPorn() {
             let q = document.getElementById('query').value.trim();
@@ -97,7 +94,7 @@
             ];
 
             urls.forEach((url, i) => {
-                setTimeout(() => Telegram.WebApp.openLink(url), i * 300);
+                setTimeout(() => openLinkSafely(url), i * 250);
             });
         }
 
@@ -106,8 +103,7 @@
             openPorn();
         }
 
-        function randomPorn() {
-            const randoms = ["twink anal", "bear fuck", "big black cock gay", "bareback creampie", "daddy son", "rough gangbang gay", "muscular gay sex"];
+        function randomPorn() {const randoms = ["twink anal", "bear fuck", "big black cock gay", "bareback creampie", "daddy son", "rough gangbang gay", "muscular gay sex"];
             const rand = randoms[Math.floor(Math.random() * randoms.length)];
             document.getElementById('query').value = rand;
             openPorn();
